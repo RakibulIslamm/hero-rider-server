@@ -78,6 +78,12 @@ const run = () => {
         res.send(user);
     })
 
+    app.get('/user-profile/:id', async (req, res) => {
+        console.log(req.params.id)
+        const user = await User.findById(req.params.id)
+        res.send(user);
+    })
+
     app.get('/packages', async (req, res) => {
         const packages = await Package.find();
         res.send(packages);
